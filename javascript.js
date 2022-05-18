@@ -79,4 +79,8 @@ function playerInput(){
     }
 }
 
-let play = game(5);
+const btn = document.querySelectorAll('.btn');
+
+btn.forEach(e => e.addEventListener('click', event => {
+  let play = playRound(e.id,computerPlay());
+}));
