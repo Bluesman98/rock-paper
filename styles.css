@@ -31,9 +31,19 @@
     align-self: center;
 }
 
+.computer-play{ 
+    align-self: center;
+}
+
 .box{
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 20px;
+}
+
+.align {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
 }

@@ -1,5 +1,3 @@
-
-
 function computerPlay() {
     let x = Math.floor(Math.random()*3+1);
     if (x==1) return "rock";
@@ -7,8 +5,6 @@ function computerPlay() {
     else return "scissors";
     
 }
-
-
 
 function playRound(playerSelection, computerSelection) {
     const msg = document.querySelector('.msg');
@@ -51,7 +47,7 @@ function playRound(playerSelection, computerSelection) {
 
     else {
     msg.textContent = "It's a tie";
-    return 0;
+    return 2;
     }
 }
   
@@ -61,28 +57,44 @@ function game(rounds) {
         let playerplay = playerInput();
         score += playRound(playerplay,computerPlay());
     }
-
-    //msg.textContent("final score is :");//
-   // msg.textContent("Player : ",score);//
-    //msg.textContent("Compuer : ",rounds-score);//
-
-    //if (score > rounds/2) return msg.textContent ("Player wins the game");
-    //else return msg.textContent ("Computer wins the game");//
-  }
+}
 
 function playerInput(){
     while (true){
         let input = prompt("Rock, Paper or Scissors ? ");
         input = input.toLowerCase();
         if (input == "rock" || input== "paper" || input == "scissors") {
-         msg.textContent(input)  ; 
          return input; 
         }
     }
 }
 
+let score = 0;
+let playerScore = 0;
+let computerScore = 0;
+
 const btn = document.querySelectorAll('.btn');
+const player = document.querySelector('#player');
+const computer = document.querySelector('#computer');
 
 btn.forEach(e => e.addEventListener('click', event => {
-  let play = playRound(e.id, computerPlay());
+  score = playRound(e.id, computerPlay());
+  if (score == 1) playerScore++;
+  if (score == 0) computerScore++;
+  if (score == 2) {
+    playerScore++; 
+    computerScore++;
+  }
+
+  player.textContent = `${playerScore}`;
+  computer.textContent = `${computerScore}`;
+
+  if(playerScore == 5 || computerScore == 5) {
+    computerPlay.textContent = '';
+    if(playerScore == 5) alert('PLAYER WINS!!!');
+    else alert('COMPUTER WINS!!!'); 
+    window.location.reload();
+    return false;
+  }
 }));
+
