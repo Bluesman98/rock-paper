@@ -3,10 +3,7 @@
     align-items: center;
     justify-content: center;
     gap: 15px;
-    padding: 500px;
-    
-    
-    
+    padding-top: 30px;
 }
 
 .btn {
@@ -14,4 +11,29 @@
     height: 100px;
     padding: 10px;
     font-size: 20px;
+}
+
+.score{
+    font-size: 30px;
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.msg{ 
+    align-self: center;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
 }
